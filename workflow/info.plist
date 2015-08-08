@@ -44,29 +44,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>title</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>58518835-C5ED-4C48-8A72-B7BD5D924C1C</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -114,7 +91,10 @@ if ("{query}" eq "") {
 print qq{&lt;item uid="0001"&gt;&lt;arg&gt;chrome&lt;/arg&gt;&lt;title&gt;Set default browser to Google Chrome&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chrome.png&lt;/icon&gt;&lt;/item&gt;\n};
 print qq{&lt;item uid="0002"&gt;&lt;arg&gt;firefox&lt;/arg&gt;&lt;title&gt;Set default browser to Firefox&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/firefox.png&lt;/icon&gt;&lt;/item&gt;\n};
 print qq{&lt;item uid="0003"&gt;&lt;arg&gt;opera&lt;/arg&gt;&lt;title&gt;Set default browser to Opera&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/opera.png&lt;/icon&gt;&lt;/item&gt;\n};
-print qq{&lt;item uid="0024"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
+print qq{&lt;item uid="0004"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
+print qq{&lt;item uid="0005"&gt;&lt;arg&gt;canary&lt;/arg&gt;&lt;title&gt;Set default browser to Chrome Canary&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/canary.png&lt;/icon&gt;&lt;/item&gt;\n};
+print qq{&lt;item uid="0006"&gt;&lt;arg&gt;chromium&lt;/arg&gt;&lt;title&gt;Set default browser to Chromium&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chromium.png&lt;/icon&gt;&lt;/item&gt;\n};
+print qq{&lt;item uid="0007"&gt;&lt;arg&gt;seamonkey&lt;/arg&gt;&lt;title&gt;Set default browser to SeaMonkey&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/seamonkey.png&lt;/icon&gt;&lt;/item&gt;\n};
 } 
 if ("{query}" ne ""){
 if (index(lc('chrome'), lc("{query}")) != -1) {
@@ -127,7 +107,16 @@ if (index(lc('opera'), lc("{query}")) != -1) {
 print qq{&lt;item uid="0003"&gt;&lt;arg&gt;opera&lt;/arg&gt;&lt;title&gt;Set default browser to Opera&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/opera.png&lt;/icon&gt;&lt;/item&gt;\n};
 }
 if (index(lc('safari'), lc("{query}")) != -1) {
-print qq{&lt;item uid="0024"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
+print qq{&lt;item uid="0004"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
+}
+if (index(lc('canary'), lc("{query}")) != -1) {
+print qq{&lt;item uid="0005"&gt;&lt;arg&gt;canary&lt;/arg&gt;&lt;title&gt;Set default browser to Chrome Canary&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/canary.png&lt;/icon&gt;&lt;/item&gt;\n};
+}
+if (index(lc('chromium'), lc("{query}")) != -1) {
+print qq{&lt;item uid="0006"&gt;&lt;arg&gt;chromium&lt;/arg&gt;&lt;title&gt;Set default browser to Chromium&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chromium.png&lt;/icon&gt;&lt;/item&gt;\n};
+}
+if (index(lc('seamonkey'), lc("{query}")) != -1) {
+print qq{&lt;item uid="0007"&gt;&lt;arg&gt;seamonkey&lt;/arg&gt;&lt;title&gt;Set default browser to SeaMonkey&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/seamonkey.png&lt;/icon&gt;&lt;/item&gt;\n};
 } 
 }
 
@@ -143,6 +132,29 @@ print "&lt;/items&gt;\n";</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>3DDE09C2-6114-4192-82D8-25CBF2458817</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>58518835-C5ED-4C48-8A72-B7BD5D924C1C</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
