@@ -42,7 +42,7 @@ lsregister -kill
 ## Change Log
 
 * Version 1.1 - Feature Release
-	* Feature: Support additional browsers - added Chromium, Canary and Seamonkey
+	* Feature: Support additional browsers - added Chromium, Canary and SeaMonkey
 	* Feature: Only show installed browsers
 	* Feature: Indicate which browser is the current default
 	* Feature: Added hotkey assignments (to launch workflow, launch with "chrome", and launch with "safari")
