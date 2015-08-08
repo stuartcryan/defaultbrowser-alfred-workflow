@@ -8,7 +8,7 @@ A simple workflow to allow quick and easy changing of the default browser on OSX
 
 ## Usage
 
-* db <browser>
+* db < browser >
 * Note - if you try to set the default browser that is already active as the default you will get no feedback.
 
 Browsers currently supported:
