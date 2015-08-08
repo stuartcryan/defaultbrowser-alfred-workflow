@@ -6,6 +6,13 @@ A simple workflow to allow quick and easy changing of the default browser on OSX
 1. Download the [.alfredworkflow file](https://github.com/stuartcryan/defaultbrowser-alfred-workflow/blob/master/set-default-browser-alfred-workflow.alfredworkflow?raw=true)
 2. Run to import into Alfred
 
+## Donations
+This workflow represents many hours effort of development, testing and rework. The images that have been licensed for this workflow from [DepositPhotos](http://depositphotos.com?ref=1682540) also needed a bit of my moolah. So if you love the workflow, and get use out of it every day, if you would like to donate as a thank you to buy me more caffeine giving Diet Coke, some Cake, or to put towards a shiny new gadget you can [donate to me via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM6E65M2GLXHE). 
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JM6E65M2GLXHE" target="_blank"><img src="https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif" border="0" alt="PayPal — The safer, easier way to pay online."></a>
+
+You should also consider getting into contact with [Margus Kerma](https://github.com/kerma) and donating to Margus also for the work that has bene put into the defaultbrowser binary.
+
 ## Usage
 
 * db < browser >
