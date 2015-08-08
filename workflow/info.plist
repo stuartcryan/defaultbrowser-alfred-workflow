@@ -67,7 +67,7 @@
 	<key>createdby</key>
 	<string>Stuart Ryan</string>
 	<key>description</key>
-	<string></string>
+	<string>Easily change your systems default browser.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -307,7 +307,7 @@ For any bugs with this workflow please log them on Github https://github.com/stu
 
 For any issues with the defaultbrowser binary please log these to Margus https://github.com/kerma/defaultbrowser.
 
-This is version 1.0 of this workflow which uses https://github.com/kerma/defaultbrowser/commit/ba806eaba718f7f1fd9843106f860edcc6d8a0ee</string>
+This is version 1.1 of this workflow</string>
 	<key>uidata</key>
 	<dict>
 		<key>3DDE09C2-6114-4192-82D8-25CBF2458817</key>
