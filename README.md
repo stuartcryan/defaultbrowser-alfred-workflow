@@ -9,13 +9,27 @@ A simple workflow to allow quick and easy changing of the default browser on OSX
 ## Usage
 
 * db < browser >
-* Note - if you try to set the default browser that is already active as the default you will get no feedback.
+* Note - if you try to set the default browser that is already active as the default you will just get a notification.
 
 Browsers currently supported:
 * Chrome
 * Firefox
 * Opera
 * Safari
+* Chromium - New in V1.1
+* Canary - New in V1.1
+* SeaMonkey - New in V1.1
+
+## Troubleshooting
+
+If you are finding that you are seeing browsers listed that you have installed previously but no longer have on your system you will need to clear out all your default handlers.
+
+Unfortunately, this is the only solution I have found to date, you should research it in depth before you use it. The following command will re-initialise all the "handlers" OSX knows about and will therefore resolve the issue, it will also likely require you to set up all your custom file associations again.
+
+In other words... you do this at your own risk, I do not support this in any way shape or form...
+
+The command you will need to run on the terminal is:
+lsregister -kill
 
 ## Contributing
 
@@ -27,6 +41,16 @@ Browsers currently supported:
 
 ## History
 
+* Version 1.1 - Feature Release
+	* Feature: Support additional browsers - added Chromium, Canary and Seamonkey
+	* Feature: Only show installed browsers
+	* Feature: Indicate which browser is the current default
+	* Feature: Added hotkey assignments (to launch workflow, launch with "chrome", and launch with "safari")
+	* Improvement: Renamed description in Alfred to simply "Default Browser"
+	* Improvement: Improved failure feedback
+	* Improvement: Major code refactor to remove duplication and speed up the workflow
+	* Improvement: Added  an icon to the workflow
+	* Improvement: defaultbrowser binary has been updated to better support integrating. This code has been put into a pull request for the official publication of defaultbrowser.
 * Version 1.0 - Initial Release
 
 ## Credits
