@@ -91,6 +91,7 @@ chomp @availableBrowsers;
 my %availableBrowsersHash;
 $availableBrowsersHash{$_}++ for (@availableBrowsers);
 print qq{&lt;?xml version="1.0" encoding="UTF-8" ?&gt;\n&lt;items&gt;\n};
+my $foundBrowser = 0;
 
 
 if ("{query}" eq "") {
@@ -119,27 +120,37 @@ print qq{&lt;item uid="0007"&gt;&lt;arg&gt;seamonkey&lt;/arg&gt;&lt;title&gt;Set
 if ("{query}" ne ""){
 if ((index(lc('chrome'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"chrome"})) {
 print qq{&lt;item uid="0001"&gt;&lt;arg&gt;chrome&lt;/arg&gt;&lt;title&gt;Set default browser to Google Chrome&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chrome.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('firefox'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"firefox"})) {
 print qq{&lt;item uid="0002"&gt;&lt;arg&gt;firefox&lt;/arg&gt;&lt;title&gt;Set default browser to Firefox&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/firefox.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('opera'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"opera"})) {
 print qq{&lt;item uid="0003"&gt;&lt;arg&gt;opera&lt;/arg&gt;&lt;title&gt;Set default browser to Opera&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/opera.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('safari'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"safari"})) {
 print qq{&lt;item uid="0004"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('canary'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"canary"})) {
 print qq{&lt;item uid="0005"&gt;&lt;arg&gt;canary&lt;/arg&gt;&lt;title&gt;Set default browser to Chrome Canary&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/canary.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('chromium'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"chromium"})) {
 print qq{&lt;item uid="0006"&gt;&lt;arg&gt;chromium&lt;/arg&gt;&lt;title&gt;Set default browser to Chromium&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chromium.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 }
 if ((index(lc('seamonkey'), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{"seamonkey"})) {
 print qq{&lt;item uid="0007"&gt;&lt;arg&gt;seamonkey&lt;/arg&gt;&lt;title&gt;Set default browser to SeaMonkey&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/seamonkey.png&lt;/icon&gt;&lt;/item&gt;\n};
+$foundBrowser = 1;
 } 
-}
 
+if ($foundBrowser == 0){
+print qq{&lt;item uid="1000"&gt;&lt;arg&gt;NOTFOUND&lt;/arg&gt;&lt;title&gt;No such browser is installed on this system&lt;/title&gt;&lt;subtitle&gt;Please try again.&lt;/subtitle&gt;&lt;icon&gt;images/error.png&lt;/icon&gt;&lt;/item&gt;\n};
+}
+}
 print "&lt;/items&gt;\n";</string>
 				<key>title</key>
 				<string>Set Default Browser</string>
