@@ -109,7 +109,9 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>if [ "{query}" != "NOTFOUND" ]; then
+				<string>if [ "{query}" == "CURRDEFAULT" ]; then
+	echo "The browser selected is already the default"
+elif [ "{query}" != "NOTFOUND" ]; then
 	./defaultbrowser -set "{query}"
 	RESULT=$?
 	if [ $RESULT != 0 ]; then
@@ -174,7 +176,7 @@ if ("{query}" eq "") {
 	my $browser = $_;
     	if (exists $availableBrowsersHash{$code}) {
 			if (exists $currentBrowserHash{$code}){
-				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;$code&lt;/arg&gt;&lt;title&gt;[Current Default] Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
+				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;CURRDEFAULT&lt;/arg&gt;&lt;title&gt;[Current Default] Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
 			} else {
 				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;$code&lt;/arg&gt;&lt;title&gt;Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
 			}
