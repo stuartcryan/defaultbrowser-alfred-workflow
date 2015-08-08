@@ -39,7 +39,7 @@ lsregister -kill
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
+## Change Log
 
 * Version 1.1 - Feature Release
 	* Feature: Support additional browsers - added Chromium, Canary and Seamonkey
