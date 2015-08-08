@@ -30,39 +30,76 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>9B6DE659-1536-4223-A452-6F2BDCE0660A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3DDE09C2-6114-4192-82D8-25CBF2458817</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>9DB33F40-65B0-40FF-A557-427ED6681A23</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3DDE09C2-6114-4192-82D8-25CBF2458817</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CB8AB408-8614-49CA-851D-413CFA7F917E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3DDE09C2-6114-4192-82D8-25CBF2458817</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Stuart Ryan</string>
 	<key>description</key>
-	<string></string>
+	<string>Easily change your systems default browser.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Set Default Browser</string>
+	<string>Default Browser</string>
 	<key>objects</key>
 	<array>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
+				<key>action</key>
 				<integer>0</integer>
-				<key>removeextension</key>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
 				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>title</key>
-				<string>{query}</string>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>58518835-C5ED-4C48-8A72-B7BD5D924C1C</string>
+			<string>CB8AB408-8614-49CA-851D-413CFA7F917E</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -72,11 +109,17 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./defaultbrowser -set "{query}"
-RESULT=$?
-if [ $RESULT != 0 ]; then
-   echo $RESULT
-fi</string>
+				<string>if [ "{query}" == "CURRDEFAULT" ]; then
+	echo "The browser selected is already the default"
+elif [ "{query}" != "NOTFOUND" ]; then
+	./defaultbrowser -set "{query}"
+	RESULT=$?
+	if [ $RESULT != 0 ]; then
+   		echo $RESULT
+	fi
+fi
+
+</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -108,29 +151,59 @@ fi</string>
 				<string>use strict;
 use warnings;
 
+my @availableBrowsers = `./defaultbrowser -status available`;
+chomp @availableBrowsers;
+my %availableBrowsersHash;
+$availableBrowsersHash{$_}++ for (@availableBrowsers);
+
+my @currentBrowser = `./defaultbrowser -status current`;
+chomp @currentBrowser;
+my %currentBrowserHash;
+$currentBrowserHash{$_}++ for (@currentBrowser);
+
+my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey");
+my $idCounter = 1;
+my $foundBrowser = 0;
+
 print qq{&lt;?xml version="1.0" encoding="UTF-8" ?&gt;\n&lt;items&gt;\n};
 
-if ("{query}" eq "") {
-print qq{&lt;item uid="0001"&gt;&lt;arg&gt;chrome&lt;/arg&gt;&lt;title&gt;Set default browser to Google Chrome&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chrome.png&lt;/icon&gt;&lt;/item&gt;\n};
-print qq{&lt;item uid="0002"&gt;&lt;arg&gt;firefox&lt;/arg&gt;&lt;title&gt;Set default browser to Firefox&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/firefox.png&lt;/icon&gt;&lt;/item&gt;\n};
-print qq{&lt;item uid="0003"&gt;&lt;arg&gt;opera&lt;/arg&gt;&lt;title&gt;Set default browser to Opera&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/opera.png&lt;/icon&gt;&lt;/item&gt;\n};
-print qq{&lt;item uid="0024"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
-} 
-if ("{query}" ne ""){
-if (index(lc('chrome'), lc("{query}")) != -1) {
-print qq{&lt;item uid="0001"&gt;&lt;arg&gt;chrome&lt;/arg&gt;&lt;title&gt;Set default browser to Google Chrome&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/chrome.png&lt;/icon&gt;&lt;/item&gt;\n};
-}
-if (index(lc('firefox'), lc("{query}")) != -1) {
-print qq{&lt;item uid="0002"&gt;&lt;arg&gt;firefox&lt;/arg&gt;&lt;title&gt;Set default browser to Firefox&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/firefox.png&lt;/icon&gt;&lt;/item&gt;\n};
-}
-if (index(lc('opera'), lc("{query}")) != -1) {
-print qq{&lt;item uid="0003"&gt;&lt;arg&gt;opera&lt;/arg&gt;&lt;title&gt;Set default browser to Opera&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/opera.png&lt;/icon&gt;&lt;/item&gt;\n};
-}
-if (index(lc('safari'), lc("{query}")) != -1) {
-print qq{&lt;item uid="0024"&gt;&lt;arg&gt;safari&lt;/arg&gt;&lt;title&gt;Set default browser to Apple Safari&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/safari.png&lt;/icon&gt;&lt;/item&gt;\n};
-} 
-}
 
+
+if ("{query}" eq "") {
+	foreach (@supportedBrowsers)
+	{
+	my $code = lc($_);
+	my $browser = $_;
+    	if (exists $availableBrowsersHash{$code}) {
+			if (exists $currentBrowserHash{$code}){
+				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;CURRDEFAULT&lt;/arg&gt;&lt;title&gt;[Current Default] Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
+			} else {
+				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;$code&lt;/arg&gt;&lt;title&gt;Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
+			}
+		}
+	$idCounter ++;
+	}
+} 
+
+if ("{query}" ne ""){
+	foreach (@supportedBrowsers)
+	{
+	my $code = lc($_);
+	my $browser = $_;
+    	if ((index(lc($code), lc("{query}")) != -1) &amp;&amp; (exists $availableBrowsersHash{$code})) {
+			if (exists $currentBrowserHash{$code}){
+				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;CURRDEFAULT&lt;/arg&gt;&lt;title&gt;[Current Default] Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
+			} else {
+				print qq{&lt;item uid="$idCounter"&gt;&lt;arg&gt;$code&lt;/arg&gt;&lt;title&gt;Set default browser to $browser&lt;/title&gt;&lt;subtitle&gt;&lt;/subtitle&gt;&lt;icon&gt;images/$code.png&lt;/icon&gt;&lt;/item&gt;\n};
+			}$foundBrowser = 1;
+		}
+	$idCounter ++;
+	}
+
+	if ($foundBrowser == 0){
+		print qq{&lt;item uid="1000"&gt;&lt;arg&gt;NOTFOUND&lt;/arg&gt;&lt;title&gt;No such browser is installed on this system&lt;/title&gt;&lt;subtitle&gt;Please try again.&lt;/subtitle&gt;&lt;icon&gt;images/error.png&lt;/icon&gt;&lt;/item&gt;\n};
+	}
+}
 print "&lt;/items&gt;\n";</string>
 				<key>title</key>
 				<string>Set Default Browser</string>
@@ -146,9 +219,90 @@ print "&lt;/items&gt;\n";</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>58518835-C5ED-4C48-8A72-B7BD5D924C1C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>chrome</string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>9DB33F40-65B0-40FF-A557-427ED6681A23</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>safari</string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>9B6DE659-1536-4223-A452-6F2BDCE0660A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
-	<string>NOTE: This Alfred Workflow is provided free of charge under the GNU GENERAL PUBLIC LICENSE Version 2.
+	<string>NOTE: With the exception of the workflow logo, this Alfred Workflow is provided free of charge under the GNU GENERAL PUBLIC LICENSE Version 2*.
 
 A huge thanks goes out to Margus Kerma (https://github.com/kerma) for the defaultbrowser binary for OSX (see https://github.com/kerma/defaultbrowser).
 
@@ -158,7 +312,11 @@ For any bugs with this workflow please log them on Github https://github.com/stu
 
 For any issues with the defaultbrowser binary please log these to Margus https://github.com/kerma/defaultbrowser.
 
-This is version 1.0 of this workflow which uses https://github.com/kerma/defaultbrowser/commit/ba806eaba718f7f1fd9843106f860edcc6d8a0ee</string>
+This is version 1.1 of this workflow
+
+*The workflow logo is licensed only for use in this workflow and must be changed if the workflow is forked in the future.
+
+The workflow logo has been licensed from DepositPhotos to Stuart Ryan.</string>
 	<key>uidata</key>
 	<dict>
 		<key>3DDE09C2-6114-4192-82D8-25CBF2458817</key>
@@ -175,6 +333,21 @@ This is version 1.0 of this workflow which uses https://github.com/kerma/default
 		<dict>
 			<key>ypos</key>
 			<real>130</real>
+		</dict>
+		<key>9B6DE659-1536-4223-A452-6F2BDCE0660A</key>
+		<dict>
+			<key>ypos</key>
+			<real>300</real>
+		</dict>
+		<key>9DB33F40-65B0-40FF-A557-427ED6681A23</key>
+		<dict>
+			<key>ypos</key>
+			<real>190</real>
+		</dict>
+		<key>CB8AB408-8614-49CA-851D-413CFA7F917E</key>
+		<dict>
+			<key>ypos</key>
+			<real>80</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
