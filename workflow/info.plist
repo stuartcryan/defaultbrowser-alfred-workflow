@@ -38,7 +38,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Set Default Browser</string>
+	<string>Default Browser</string>
 	<key>objects</key>
 	<array>
 		<dict>
