@@ -49,11 +49,15 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./defaultbrowser -set "{query}"
-RESULT=$?
-if [ $RESULT != 0 ]; then
-   echo $RESULT
-fi</string>
+				<string>if [ "{query}" != "NOTFOUND" ]; then
+	./defaultbrowser -set "{query}"
+	RESULT=$?
+	if [ $RESULT != 0 ]; then
+   		echo $RESULT
+	fi
+fi
+
+</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -97,7 +101,7 @@ $currentBrowserHash{$_}++ for (@currentBrowser);
 
 my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey");
 my $idCounter = 1;
-my $foundBrowser = 1;
+my $foundBrowser = 0;
 
 print qq{&lt;?xml version="1.0" encoding="UTF-8" ?&gt;\n&lt;items&gt;\n};
 
