@@ -3,7 +3,7 @@ A simple workflow to allow quick and easy changing of the default browser on OSX
 
 ## Installation
 
-1. Download the .alfredworkflow file
+1. Download the [.alfredworkflow file](https://github.com/stuartcryan/defaultbrowser-alfred-workflow/blob/master/set-default-browser-alfred-workflow.alfredworkflow?raw=true)
 2. Run to import into Alfred
 
 ## Usage
@@ -68,4 +68,8 @@ DefaultBrowser Alfred workflow created by [Stuart Ryan](http://stuartryan.com). 
 
 ## License
 
-Released under the GNU GENERAL PUBLIC LICENSE Version 2, June 1991
+With the exception of the workflow logo, this Alfred Workflow is provided free of charge under the GNU GENERAL PUBLIC LICENSE Version 2 June 1991.
+
+The workflow logo is licensed only for use in this workflow and must be changed if the workflow is forked in the future.
+
+The workflow logo has been licensed from [DepositPhotos](http://depositphotos.com/?ref=1682540) to Stuart Ryan.

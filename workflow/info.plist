@@ -82,11 +82,11 @@
 				<key>argument</key>
 				<integer>0</integer>
 				<key>hotkey</key>
-				<integer>0</integer>
+				<integer>16</integer>
 				<key>hotmod</key>
-				<integer>0</integer>
+				<integer>262144</integer>
 				<key>hotstring</key>
-				<string></string>
+				<string>Y</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -302,7 +302,7 @@ print "&lt;/items&gt;\n";</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>NOTE: This Alfred Workflow is provided free of charge under the GNU GENERAL PUBLIC LICENSE Version 2.
+	<string>NOTE: With the exception of the workflow logo, this Alfred Workflow is provided free of charge under the GNU GENERAL PUBLIC LICENSE Version 2*.
 
 A huge thanks goes out to Margus Kerma (https://github.com/kerma) for the defaultbrowser binary for OSX (see https://github.com/kerma/defaultbrowser).
 
@@ -312,7 +312,11 @@ For any bugs with this workflow please log them on Github https://github.com/stu
 
 For any issues with the defaultbrowser binary please log these to Margus https://github.com/kerma/defaultbrowser.
 
-This is version 1.1 of this workflow</string>
+This is version 1.1 of this workflow
+
+*The workflow logo is licensed only for use in this workflow and must be changed if the workflow is forked in the future.
+
+The workflow logo has been licensed from DepositPhotos to Stuart Ryan.</string>
 	<key>uidata</key>
 	<dict>
 		<key>3DDE09C2-6114-4192-82D8-25CBF2458817</key>
