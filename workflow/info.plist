@@ -161,7 +161,7 @@ chomp @currentBrowser;
 my %currentBrowserHash;
 $currentBrowserHash{$_}++ for (@currentBrowser);
 
-my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey");
+my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey","FirefoxDeveloperEdition","Webkit");
 my $idCounter = 1;
 my $foundBrowser = 0;
 
@@ -312,7 +312,7 @@ For any bugs with this workflow please log them on Github https://github.com/stu
 
 For any issues with the defaultbrowser binary please log these to Margus https://github.com/kerma/defaultbrowser.
 
-This is version 1.1 of this workflow
+This is version 1.2 of this workflow
 
 *The workflow logo is licensed only for use in this workflow and must be changed if the workflow is forked in the future.
 

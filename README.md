@@ -26,6 +26,8 @@ Browsers currently supported:
 * Chromium - New in V1.1
 * Canary - New in V1.1
 * SeaMonkey - New in V1.1
+* FirefoxDeveloperEdition - New in V1.2
+* Webkit Nightly Build - New in V1.2
 
 ## Troubleshooting
 
@@ -48,6 +50,8 @@ lsregister -kill
 
 ## Change Log
 
+* Version 1.2 - Feature Release
+	* Feature: Support additional browsers - added FirefoxDeveloperEdition and Webkit Nightly Build
 * Version 1.1 - Feature Release
 	* Feature: Support additional browsers - added Chromium, Canary and SeaMonkey
 	* Feature: Only show installed browsers
@@ -70,8 +74,6 @@ DefaultBrowser Alfred workflow created by [Stuart Ryan](http://stuartryan.com). 
 * [@StuartCRyan on Twitter](http://twitter.com/stuartcryan)
 * [Stuart Ryan on LinkedIn](https://au.linkedin.com/in/stuartcryan)
 * [Technical Notebook Blog](http://technicalnotebook.com)
-* [Technical Notebook Wiki](http://technicalnotebook.com/wiki)
-* [Technical Notebook JIRA](http://technicalnotebook.com/jira)
 
 ## License
 
