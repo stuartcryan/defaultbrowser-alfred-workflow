@@ -5,7 +5,7 @@
 	<key>bundleid</key>
 	<string>com.stuartryan.alfred.defaultbrowser</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>3DDE09C2-6114-4192-82D8-25CBF2458817</key>
@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>3FE887BF-1B3D-4893-86D1-148BB13B36BB</key>
@@ -28,6 +30,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>9B6DE659-1536-4223-A452-6F2BDCE0660A</key>
@@ -39,6 +43,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>9DB33F40-65B0-40FF-A557-427ED6681A23</key>
@@ -50,6 +56,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>CB8AB408-8614-49CA-851D-413CFA7F917E</key>
@@ -61,6 +69,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -80,7 +90,9 @@
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
-				<integer>0</integer>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>safariTechnologyPreview</string>
 				<key>hotkey</key>
 				<integer>0</integer>
 				<key>hotmod</key>
@@ -99,7 +111,7 @@
 			<key>uid</key>
 			<string>CB8AB408-8614-49CA-851D-413CFA7F917E</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -120,6 +132,10 @@ elif [ "{query}" != "NOTFOUND" ]; then
 fi
 
 </string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -128,11 +144,13 @@ fi
 			<key>uid</key>
 			<string>3FE887BF-1B3D-4893-86D1-148BB13B36BB</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -147,6 +165,8 @@ fi
 				<integer>0</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
 				<key>script</key>
 				<string>use strict;
 use warnings;
@@ -161,7 +181,7 @@ chomp @currentBrowser;
 my %currentBrowserHash;
 $currentBrowserHash{$_}++ for (@currentBrowser);
 
-my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey","FirefoxDeveloperEdition","Webkit");
+my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","FirefoxDeveloperEdition", "SeaMonkey","Webkit","SafariTechnologyPreview","Nightly");
 my $idCounter = 1;
 my $foundBrowser = 0;
 
@@ -205,6 +225,12 @@ if ("{query}" ne ""){
 	}
 }
 print "&lt;/items&gt;\n";</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
 				<key>title</key>
 				<string>Set Default Browser</string>
 				<key>type</key>
@@ -217,7 +243,7 @@ print "&lt;/items&gt;\n";</string>
 			<key>uid</key>
 			<string>3DDE09C2-6114-4192-82D8-25CBF2458817</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -226,12 +252,10 @@ print "&lt;/items&gt;\n";</string>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
 				<true/>
-				<key>output</key>
-				<integer>0</integer>
 				<key>removeextension</key>
 				<false/>
-				<key>sticky</key>
-				<false/>
+				<key>text</key>
+				<string></string>
 				<key>title</key>
 				<string>{query}</string>
 			</dict>
@@ -240,7 +264,7 @@ print "&lt;/items&gt;\n";</string>
 			<key>uid</key>
 			<string>58518835-C5ED-4C48-8A72-B7BD5D924C1C</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -255,8 +279,6 @@ print "&lt;/items&gt;\n";</string>
 				<integer>0</integer>
 				<key>hotmod</key>
 				<integer>0</integer>
-				<key>hotstring</key>
-				<string></string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -269,7 +291,7 @@ print "&lt;/items&gt;\n";</string>
 			<key>uid</key>
 			<string>9DB33F40-65B0-40FF-A557-427ED6681A23</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -284,8 +306,6 @@ print "&lt;/items&gt;\n";</string>
 				<integer>0</integer>
 				<key>hotmod</key>
 				<integer>0</integer>
-				<key>hotstring</key>
-				<string></string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -298,7 +318,7 @@ print "&lt;/items&gt;\n";</string>
 			<key>uid</key>
 			<string>9B6DE659-1536-4223-A452-6F2BDCE0660A</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -321,31 +341,43 @@ The workflow logo has been licensed from DepositPhotos to Stuart Ryan.</string>
 	<dict>
 		<key>3DDE09C2-6114-4192-82D8-25CBF2458817</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>3FE887BF-1B3D-4893-86D1-148BB13B36BB</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>58518835-C5ED-4C48-8A72-B7BD5D924C1C</key>
 		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
 			<key>ypos</key>
 			<real>130</real>
 		</dict>
 		<key>9B6DE659-1536-4223-A452-6F2BDCE0660A</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>300</real>
 		</dict>
 		<key>9DB33F40-65B0-40FF-A557-427ED6681A23</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>190</real>
 		</dict>
 		<key>CB8AB408-8614-49CA-851D-413CFA7F917E</key>
 		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
 			<key>ypos</key>
 			<real>80</real>
 		</dict>
