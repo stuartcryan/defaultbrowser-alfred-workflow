@@ -161,7 +161,7 @@ chomp @currentBrowser;
 my %currentBrowserHash;
 $currentBrowserHash{$_}++ for (@currentBrowser);
 
-my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey","FirefoxDeveloperEdition","Webkit");
+my @supportedBrowsers = ("Chrome","Firefox","Safari","Canary","Opera","Chromium","SeaMonkey","FirefoxDeveloperEdition","Webkit","Nightly");
 my $idCounter = 1;
 my $foundBrowser = 0;
 
